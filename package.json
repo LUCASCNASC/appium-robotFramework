@@ -1,0 +1,18 @@
+{
+  "name": "appium-project",
+  "version": "1.0.0",
+  "description": "Automation with Appium and Robot Framework",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "appium": "^3.1.0"
+  },
+  "devDependencies": {
+    "appium-uiautomator2-driver": "^6.0.0"
+  }
+}
