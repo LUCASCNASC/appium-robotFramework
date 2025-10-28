@@ -1,8 +1,5 @@
-*** Settings ***
-Library    AppiumLibrary
-
-*** Test Cases ***
-Iniciar Sessão com Sucesso
+*** Keywords ***
+Iniciar Sessão
     [Documentation]    Teste para iniciar sessão com credenciais válidas.
     Open Application    http://localhost:4723
     ...    platformName=Android
@@ -12,8 +9,10 @@ Iniciar Sessão com Sucesso
     ...    udid=emulator-5554
     ...    autoGrantPermissions=true
     
-    # Adicione aqui os passos para interagir (digitar login/senha e clicar)
-    # Exemplo: Input Text    id=username_field    sua_senha
-    
-    Sleep    5s
+    # Sleep    5s
+
+    Wait Until Element Is Visible    xpath=//*[@content-desc="App logo and name"]
+    Wait Until Page Contains    text=Products
+
+Encerrar Sessão
     Close Application
