@@ -1,3 +1,6 @@
+*** Settings ***
+Library    AppiumLibrary
+
 *** Keywords ***
 Iniciar Sessão
     [Documentation]    Teste para iniciar sessão com credenciais válidas.
