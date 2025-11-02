@@ -29,8 +29,17 @@ Login Logout
     Fazer Login    email=bod@example.com    password=10203040
 
     Click Element    xpath=//*[@content-desc="View menu"]
-    Wait Until Element Is Visible    id=com.saucelabs.mydemoapp.android:id/logoutTV
+    Click Element    xpath=//*[@content-desc="Logout Menu Item"]
+    Click Element    xpath=/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/androidx.appcompat.widget.LinearLayoutCompat/android.widget.ScrollView/android.widget.LinearLayout/android.widget.Button[2]
+    Wait Until Element Is Visible    id=com.saucelabs.mydemoapp.android:id/loginTV
 
 
-# Login sem sucesso faltando campo
-#    Log TODO
+Login sem sucesso faltando senha
+    Acessar página de Login
+    Fazer Login    email=bod@example.com    password=
+    Wait Until Page Contains    text=Enter Password
+
+Login sem sucesso faltando email
+    Acessar página de Login
+    Fazer Login    email=    password=10203040
+    Wait Until Page Contains    text=Username is required
