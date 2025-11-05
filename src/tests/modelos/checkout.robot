@@ -29,7 +29,6 @@ Teste checkout com sucesso
 
     # Prosseguir checkout - usuário
     Click Element    xpath=//android.widget.Button[@content-desc="Confirms products for checkout"]
-
     Input Text    id=com.saucelabs.mydemoapp.android:id/fullNameET    text=Lucas
     Input Text    id=com.saucelabs.mydemoapp.android:id/address1ET    text=Rua Teste, 123
     Input Text    id=com.saucelabs.mydemoapp.android:id/cityET    text=Maringá
@@ -39,13 +38,11 @@ Teste checkout com sucesso
 
     # Prosseguir checkout - pagamento
     Wait Until Page Contains Element    id=com.saucelabs.mydemoapp.android:id/enterPaymentMethodTV
-
     Input Text    id=com.saucelabs.mydemoapp.android:id/nameET    text=Lucas
     Input Text    id=com.saucelabs.mydemoapp.android:id/cardNumberET    text=1234123412341234
     Input Text    id=com.saucelabs.mydemoapp.android:id/expirationDateET    text=10/32
     Input Text    id=com.saucelabs.mydemoapp.android:id/securityCodeET    text=123
     Click Element    xpath=//android.widget.Button[@content-desc="Saves payment info and launches screen to review checkout data"]
-
 
     # Conferir e concluir a compra
     Wait Until Page Contains    text=Review your order

@@ -27,7 +27,6 @@ Login sem sucesso
 Login Logout
     Acessar página de Login
     Fazer Login    email=bod@example.com    password=10203040
-
     Click Element    xpath=//*[@content-desc="View menu"]
     Click Element    xpath=//*[@content-desc="Logout Menu Item"]
     Click Element    xpath=/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/androidx.appcompat.widget.LinearLayoutCompat/android.widget.ScrollView/android.widget.LinearLayout/android.widget.Button[2]
