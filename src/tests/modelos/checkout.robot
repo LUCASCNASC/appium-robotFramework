@@ -1,6 +1,7 @@
 *** Settings ***
 Resource    ../../resourse/login.resource
 Resource    ../../resourse/home.resource
+Resource    ../../resourse/checkout.resource
 Test Setup    Iniciar Sessão
 Test Teardown    Encerrar Sessão
 Library    String
@@ -13,37 +14,17 @@ Teste checkout com sucesso
     Fazer Login    email=bod@example.com    password=10203040
     
     # Adicionar Produto
-    Click Element    xpath=(//*[@content-desc="Product Image"])[1]
-    Wait Until Page Contains Element    id=com.saucelabs.mydemoapp.android:id/productTV
-
-    ${preco}    Get Text    id=com.saucelabs.mydemoapp.android:id/priceTV
-    Should Be Equal    ${preco}     $ 29.99
-
-    Click Element    xpath=//*[@content-desc="Tap to add product to cart"]
-    Click Element    xpath=//*[@content-desc="Displays number of items in your cart"]/android.widget.TextView
+    Adicionar Produto    posicao_produto=1    nome_produto=    preco_produto= $ 29.99
     
     # Conferir Carrinho
-    Wait Until Page Contains Element    xpath=//android.widget.TextView[@resource-id="com.saucelabs.mydemoapp.android:id/titleTV" and @text="Sauce Labs Backpack"]
-    Wait Until Page Contains Element    xpath=//android.widget.TextView[@resource-id="com.saucelabs.mydemoapp.android:id/priceTV" and @text="$ 29.99"]
-    Wait Until Page Contains Element    xpath=//android.widget.TextView[@resource-id="com.saucelabs.mydemoapp.android:id/totalPriceTV" and @text="$ 29.99"]
-
+    Validar Carrinho    nome_produto=Sauce Labs Backparck    preco_produto= $ 29.99
+    
     # Prosseguir checkout - usuário
-    Click Element    xpath=//android.widget.Button[@content-desc="Confirms products for checkout"]
-    Input Text    id=com.saucelabs.mydemoapp.android:id/fullNameET    text=Lucas
-    Input Text    id=com.saucelabs.mydemoapp.android:id/address1ET    text=Rua Teste, 123
-    Input Text    id=com.saucelabs.mydemoapp.android:id/cityET    text=Maringá
-    Input Text    id=com.saucelabs.mydemoapp.android:id/zipET    text=123456789
-    Input Text    id=com.saucelabs.mydemoapp.android:id/countryET    text=Brasil
-    Click Element    xpath=//android.widget.Button[@content-desc="Saves user info for checkout"]
+    Checkout - preencher dados do usuário    nome=Lucas    endereco=Rua Teste, 123    cidade=Maringá    zip=123456789    pais=Brasil
 
     # Prosseguir checkout - pagamento
-    Wait Until Page Contains Element    id=com.saucelabs.mydemoapp.android:id/enterPaymentMethodTV
-    Input Text    id=com.saucelabs.mydemoapp.android:id/nameET    text=Lucas
-    Input Text    id=com.saucelabs.mydemoapp.android:id/cardNumberET    text=1234123412341234
-    Input Text    id=com.saucelabs.mydemoapp.android:id/expirationDateET    text=10/32
-    Input Text    id=com.saucelabs.mydemoapp.android:id/securityCodeET    text=123
-    Click Element    xpath=//android.widget.Button[@content-desc="Saves payment info and launches screen to review checkout data"]
-
+    Checkout - preencher dados de pagamento    nome=Lucas    cartao=1234123412341234    exp=10/32    sec_code=123
+    
     # Conferir e concluir a compra
     Wait Until Page Contains    text=Review your order
 
