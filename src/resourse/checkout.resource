@@ -1,5 +1,6 @@
 *** Settings ***
 Library    AppiumLibrary
+Library    String
 
 *** Keywords ***
 Adicionar Produto
@@ -39,3 +40,33 @@ Checkout - preencher dados de pagamento
     Input Text    id=com.saucelabs.mydemoapp.android:id/expirationDateET    text=${exp}
     Input Text    id=com.saucelabs.mydemoapp.android:id/securityCodeET    text=${sec_code}
     Click Element    xpath=//android.widget.Button[@content-desc="Saves payment info and launches screen to review checkout data"]
+
+Validar e concluir compra    
+    [Arguments]    ${preco_produto}
+
+    Wait Until Page Contains    text=Review your order
+
+    ${location}    Get Element Location    text=Deliver Address
+
+    ${new_y}    ${location}[y]-500
+
+    Swipe    ${location}[x]    ${location}[y]    ${location}[x]    ${new_y}
+
+    ${frete}    Get Text    xpath=//android.widget.ScrollView[@content-desc="Manages scrolling of views in given screen"]/android.view.ViewGroup/android.widget.TextView[2]
+    ${frete}    Replace String    ${frete}    $    ${EMPTY}
+    ${frete}    Convert To Number    ${frete}
+
+    ${preco_produto}    Replace String    ${preco_produto}    $    ${EMPTY}
+    ${preco_produto}    Convert To Number    ${preco_produto}
+
+    ${soma}    Evaluate    ${frete}+29.99
+    ${soma}    Set Variable    $ ${frete}+${preco_produto}
+
+    ${valor_total}    Get Text    id=com.saucelabs.mydemoapp.android:id/totalAmountTV
+
+    Should Be Equal    ${soma}    ${valor_total}
+
+    Click Element    xpath=//android.widget.Button[@content-desc="Completes the process of checkout"]
+    Wait Until Page Contains    text=Checkout Complete
+    Wait Until Page Contains    text=Continue Shopping
+    Click Element    xpath=//android.widget.Button[@content-desc="Tap to open catalog"]
