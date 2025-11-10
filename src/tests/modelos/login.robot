@@ -32,7 +32,6 @@ Login Logout
     Click Element    xpath=/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/androidx.appcompat.widget.LinearLayoutCompat/android.widget.ScrollView/android.widget.LinearLayout/android.widget.Button[2]
     Wait Until Element Is Visible    id=com.saucelabs.mydemoapp.android:id/loginTV
 
-
 Login sem sucesso faltando senha
     Acessar página de Login
     Fazer Login    email=bod@example.com    password=

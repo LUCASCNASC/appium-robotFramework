@@ -35,8 +35,6 @@ Teste com Swipe - Forma 2 - Fixo
 
 Utilizar Swipe para desenhar uma letra
 
-    # Letra possíveis: E,T,Y,I,F,H,K,L,Z,C,V,N,M
-
     # Navegação
     Click Element    xpath=//*[@content-desc="View menu"]
     Click Element    xpath=//*[@resource-id="com.saucelabs.mydemoapp.android:id/itemTV" and @text="Drawing"]
