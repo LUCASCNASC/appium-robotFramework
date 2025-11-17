@@ -1,0 +1,9 @@
+{
+    "robot.python.executable": "C:\\Users\\Administrador\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+
+    "robot.language-server.python": "C:\\Users\\Administrador\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+
+    "robot.libraries": [
+        "AppiumLibrary"
+    ]
+}
