@@ -1,16 +1,16 @@
 *** Settings ***
 Resource    ../../resourse/login.resource
 Resource    ../../resourse/home.resource
-Resource    ../../resourse/virtualUSB.resource
+Resource    ../../resourse/crashAppDebug.resource
 Test Setup    Iniciar Sessão
 Test Teardown    Encerrar Sessão
 
 *** Test Cases ***
-Teste WebView com sucesso
+Teste About com sucesso
 
     # Fazer Login
     Acessar página de Login
     Fazer Login    email=bod@example.com    password=10203040
 
-    # Acessar Virtual USB
-    Acessar página Virtual USB
+    # Acessar Crash App Debug
+    Acessar página Crash App Debug
