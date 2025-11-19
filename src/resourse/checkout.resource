@@ -70,3 +70,15 @@ Validar e concluir compra
     Wait Until Page Contains    text=Checkout Complete
     Wait Until Page Contains    text=Continue Shopping
     Click Element    xpath=//android.widget.Button[@content-desc="Tap to open catalog"]
+
+Checkout - preencher dados Endereço de pagamento
+    [Arguments]    ${nome}   ${endereco}    ${cidade}   ${zip}    ${pais}
+
+    Click Element    id=com.saucelabs.mydemoapp.android:id/billingAddressCB
+
+    Input Text    id=com.saucelabs.mydemoapp.android:id/fullNameET    text=${nome}  
+    Input Text    id=com.saucelabs.mydemoapp.android:id/address1ET    text=${endereco}
+    Input Text    id=com.saucelabs.mydemoapp.android:id/cityET    text=${cidade} 
+    Input Text    id=com.saucelabs.mydemoapp.android:id/zipET    text=${zip}
+    Input Text    id=com.saucelabs.mydemoapp.android:id/countryET    text=${pais}
+    Click Element    xpath=//android.widget.Button[@content-desc="Saves user info for checkout"]
