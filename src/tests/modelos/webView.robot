@@ -14,3 +14,6 @@ Teste WebView com sucesso
 
     # Acessar WebView
     Acessar página Web View
+
+    # Acessar outro site
+    Acessar outro site    site=meutimao.com.br
