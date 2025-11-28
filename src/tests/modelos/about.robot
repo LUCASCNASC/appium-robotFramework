@@ -14,3 +14,6 @@ Teste About com sucesso
 
     # Acessar About
     Acessar página About
+
+    # Acessar Go to the Sauce Labs Website
+    Go to the Sauce Labs Website
